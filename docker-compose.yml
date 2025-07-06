@@ -1,0 +1,26 @@
+
+services:
+  db:
+    image: qdrant/qdrant
+    container_name: qdrant_db
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./qdrant_data:/qdrant/storage
+
+  brave-search-mcp:
+    build: ./brave-search-mcp
+    container_name: brave_search_mcp
+    ports:
+      - "8000:8000"
+    environment:
+      - BRAVE_SEARCH_API_KEY=${BRAVE_SEARCH_API_KEY}
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8000
+      - LOG_LEVEL=info
+    volumes:
+      - ./brave-search-mcp:/app
+    depends_on:
+      - db
+    restart: unless-stopped
