@@ -7,9 +7,6 @@ For web, image, video and news search.
 import asyncio
 import os
 
-from dotenv import load_dotenv
-from rich.console import Console
-
 from brave_search_python_client import (
     BraveSearch,
     CountryCode,
@@ -19,6 +16,7 @@ from brave_search_python_client import (
     VideosSearchRequest,
     WebSearchRequest,
 )
+from dotenv import load_dotenv
 
 # Load .env file and get Brave Search API key from environment
 load_dotenv()
