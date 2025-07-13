@@ -9,9 +9,9 @@ services:
     volumes:
       - ./qdrant_data:/qdrant/storage
 
-  brave-search-mcp:
-    build: ./brave-search-mcp
-    container_name: brave_search_mcp
+  agent-tools-mcp:
+    build: ./agent-tools-mcp
+    container_name: agent_tools_mcp
     ports:
       - "8000:8000"
     environment:
@@ -20,7 +20,6 @@ services:
       - SERVER_PORT=8000
       - LOG_LEVEL=info
     volumes:
-      - ./brave-search-mcp:/app
+      - ./agent-tools-mcp/agent_tools_mcp:/app/agent_tools_mcp
     depends_on:
       - db
-    restart: unless-stopped

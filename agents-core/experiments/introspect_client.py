@@ -1,6 +1,5 @@
-from fastmcp import Client
 import mcp
-
+from fastmcp import Client
 
 # Standard MCP configuration with multiple servers
 config = {
