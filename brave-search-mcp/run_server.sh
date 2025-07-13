@@ -1,9 +1,9 @@
 #!/bin/bash
-"""Run the Brave Search MCP Server with SSE transport."""
+"""Run the Brave Search MCP Server with uvicorn."""
 
-echo "Starting Brave Search MCP Server with SSE transport..."
-echo "Server will be available at: http://0.0.0.0:8000/sse"
+echo "Starting Brave Search MCP Server with uvicorn..."
+echo "Server will be available at: http://0.0.0.0:8000/mcp"
 echo "Press Ctrl+C to stop the server"
 
-# Run the MCP server directly using Python with uv
-uv run python -m brave_search_mcp.main
+# Run the MCP server using uvicorn
+uvicorn brave_search_mcp.main:app --host 0.0.0.0 --port 8000

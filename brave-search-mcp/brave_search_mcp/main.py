@@ -195,7 +195,9 @@ async def news_search(query: str, count: int = 10) -> str:
         return json.dumps({"error": f"News search failed: {str(e)}", "query": query}, indent=2)
 
 
+# Expose the ASGI app for production runners
+app = server.app(transport="http", path="/mcp")
+
 if __name__ == "__main__":
-    # Run the MCP server with HTTP transport
-    # server.run(transport="http", host="0.0.0.0", port=8000, path="/mcp")
+    # For development, run the server directly
     server.run(transport="http", host=settings.server_host, port=settings.server_port, path="/mcp")
