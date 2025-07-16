@@ -14,9 +14,6 @@ class MCPServerConfig(BaseSettings):
     web_search_mcp_url: str = "http://localhost:8000/mcp"
     timeout: int = 10  # Timeout for MCP requests in seconds
 
-    class Config:
-        case_sensitive = False
-
 
 class GeminiConfig(BaseSettings):
     """Configuration for Google Gemini."""
@@ -25,9 +22,6 @@ class GeminiConfig(BaseSettings):
     gemini_model: str = "gemini-2.5-flash"
     gemini_temperature: float = 0.1
     gemini_max_tokens: int = 8192
-
-    class Config:
-        case_sensitive = False
 
 
 class AgentConfig(BaseModel):

@@ -21,5 +21,6 @@ services:
       - LOG_LEVEL=info
     volumes:
       - ./agent-tools-mcp/agent_tools_mcp:/app/agent_tools_mcp
+      - ./agent-tools-mcp/tests:/app/tests
     depends_on:
       - db
