@@ -126,7 +126,8 @@ class BaseAgent(ABC):
                 conversation_text += f"\nContext: {json.dumps(context, indent=2)}\n\n"
 
             # Generate response
-            response = self.model.generate_content(conversation_text)
+
+            response = await self.model.generate_content_async(conversation_text)
 
             return response.text
 
