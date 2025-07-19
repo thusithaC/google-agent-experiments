@@ -1,6 +1,5 @@
 """Search agent that uses an MCP server to dynamically select and execute tools."""
 
-import asyncio
 import json
 from typing import Any
 
@@ -120,17 +119,3 @@ Provide only the JSON object in your response.
         except Exception as e:
             logger.error("An unexpected error occurred during tool selection.", exc_info=e)
             return None, {}
-
-
-async def main():
-    """Example usage of the SearchAgent."""
-    # This assumes the MCP server is running at the default location.
-    # You can start it from the `agent-tools-mcp` directory.
-    agent = SearchAgent(mcp_server_url="http://localhost:8000/mcp/")
-    result = await agent("what is the latest news on generative ai?")
-    # result = await agent("search for images of cute cats")
-    print(result)
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
